@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JAVASCRIPT</title>
+</head>
+<body>
+<script type="text/javascript">
+
+// bu da olur
+	var adam=new Array("Ben","Sen","O","Biz","Siz","Onlar");
+	document.write(adam[1]);
+
+	document.write("<br>");
+
+// bu da olur
+	var adam=new Array();
+	adam[2]="Güzel İnsan";
+	adam[1]="Ümit UZ";
+	adam[3]="Bursa - Uludağ";	
+	document.write(adam[2]+"<br>");
+	document.write(adam[1]+"<br>");
+	document.write(adam[3]+"<br>");
+
+	var kategoriler= new Array("Html","Css","Javascript","Jquery","Ajax","Php","Laravel");
+	var versiyon= new Array("Html5","Css3","Php7");
+	var hepsi = kategoriler.concat(versiyon);
+
+	document.write(hepsi[9]);
+
+
+</script>
+</body>
+</html>

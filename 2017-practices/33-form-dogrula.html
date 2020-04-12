@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JAVASCRIPT</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+
+	function onayla()
+	{
+		if (document.formdogrula.kutu.checked) alert("İşlem Tamamdır Bro!")
+		else alert("Lütfen, işlemi tamamlayabilmek için kutuları doldurunuz");	
+	}
+
+
+	</script>
+</head>
+<body>
+
+<form name="formdogrula">
+	<input type="checkbox" name="kutu">
+	<input type="submit" value="Gönder" onclick="onayla()">
+</form>
+
+
+</body>
+</html>

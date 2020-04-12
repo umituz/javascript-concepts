@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JAVASCRIPT</title>
+</head>
+<body>
+<script type="text/javascript">
+
+function zaman()
+{
+	var tarih= new Date();
+	var saat= tarih.getHours();
+	var dakika= tarih.getMinutes();
+	var saniye= tarih.getSeconds();
+	document.write(saat+":"+dakika+":"+saniye+"<br/>");
+}
+
+setInterval("zaman()",1000);
+
+</script>
+</body>
+</html>

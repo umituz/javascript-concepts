@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JAVASCRIPT</title>
+<script type="text/javascript">
+	
+function kisi(isim,yas)
+{
+	this.isim=isim;
+	this.yas=yas;
+	this.ortHayatSuresi=ortYasamSuresi;
+}
+
+function ortYasamSuresi()
+{
+	var ortYil = 65 - this.yas;
+	return ortYil;
+}
+
+var yalcin= new kisi("Yalçın",19);
+var soner= new kisi("Soner",4);
+var zafer= new kisi("Zafer",64);
+
+</script>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+document.write(yalcin.ortHayatSuresi()+"<br>");
+document.write(soner.ortHayatSuresi()+"<br>");
+document.write(zafer.ortHayatSuresi()+"<br>");
+
+
+</script>
+
+</body>
+</html>
