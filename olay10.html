@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>onchange - onclick ile form denetimi</title>
+	<style type="text/css">
+		input{
+			width:200px; height: 25px; border: 1px solid #06c; padding: 10px; font:bold 15px Georgia;
+		}
+		span{
+			width:200px; height: 25px;  
+		}
+	</style>
+	<script type="text/javascript">
+		function kontrol(){
+			var sifre = document.getElementById("sifre").value;
+			document.getElementById("uyari").innerHTML = "";
+			if (sifre == "123456") {
+				document.getElementById("sifre").style.backgroundColor = "#0f0";
+
+			}else{				
+				document.getElementById("uyari").innerHTML = "Hatalı!";
+				document.getElementById("uyari").style.color = "#f00";
+				document.getElementById("sifre").style.backgroundColor = "#f00";
+				document.getElementById("sifre").style.color = "#fff";
+				document.getElementById("sifre").style.borderWidth = "1px";
+				document.getElementById("sifre").style.borderColor = "#a00";
+				
+			}
+		}
+	</script>
+</head>
+<body>
+<form>
+	<table border="0" cellpadding="5" cellspacing="5">
+		<tr>
+			<td height="30" width="150">Kullanıcı Adı</td>
+			<td width="200"><input type="text" id="kullanici"></td>
+			<td width="300"><span></span></td>
+		</tr>
+		<tr>
+			<td height="30" width="150">Şifre</td>
+			<td width="150"><input type="password" id="sifre" onchange="kontrol()"></td>
+			<td width="300"><span id="uyari"></span></td>
+		</tr>
+
+	</table>
+</form>
+
+</body>
+</html>

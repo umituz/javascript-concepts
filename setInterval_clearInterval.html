@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zamanlama Fonksiyonları // setInterval - clearInterval</title>
+	<script type="text/javascript">
+		var tekrar;
+		tekrar = setInterval("dongu()",1000);
+		function dongu(){
+			alert("Bana müdahale etmezsen, sonsuza kadar çalışırım!");
+		}
+		function durdur(){
+			clearInterval(tekrar);
+		}
+	</script>
+</head>
+<body>
+
+<input type="button" onclick="durdur()" value="Sonlandır" />
+
+</body>
+</html>

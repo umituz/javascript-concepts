@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>güvenlik kodu üretme</title>
+	<style type="text/css">
+		#kod{
+			width:130px; height:40px; background-color:#ccc; font: bold 30px 'Comic Sans Ms'; color: #00f; text-align: center; 
+		}
+	</style>
+	<script type="text/javascript">
+		function koduret(){
+			var kodlar="";
+			for(var i=1; i<=6; i++){
+				if(Math.round(Math.random()) == 1){
+					kodlar = kodlar + String.fromCharCode(65+25*Math.random());					
+				}else{
+					kodlar = kodlar + String.fromCharCode(48+9*Math.random());					
+				}
+			}
+			
+			document.getElementById("kod").innerHTML = kodlar;
+		}
+	</script>
+</head>
+<body>
+
+<div id="kod"></div>
+<br><br>
+<form action="" method="post">
+	<input type="button" value="Değiştir" onclick="koduret()">
+</form>
+
+</body>
+</html>

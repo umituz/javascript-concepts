@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>setTimeOut</title>
+	<script type="text/javascript">
+		var pencere;
+		function pencereac(){
+			pencere=window.open("","pencere","width=400,height=300,top=200,left=200,scrollbars=yes");
+			pencere.document.write("<html><head><title>Açılan bir pencere</title></head><body bgcolor='black' text='white'>");
+			pencere.document.write("<center><h3>Merhaba Adamım!<h3></center>");
+			pencere.document.write("</body></html>");
+		}
+		function pencerekapat(){
+			pencere.close();
+		}
+	</script>
+</head>
+<body>
+
+<a href="#" onclick="pencereac()">Pencereyi Aç</a>
+<br/><br/>
+<a href="#" onclick="pencerekapat()">Pencereyi Kapat</a>
+
+</body>
+</html>

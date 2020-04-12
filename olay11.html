@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form denetimi</title>
+	<style type="text/css">
+		input{
+			width:200px; height: 25px; border: 1px solid #06c; padding: 10px; font:bold 15px Georgia; box-shadow: 1px 1px red;
+		}
+		input[type=submit]{
+			width:100px; height: 50px; border:0 none;
+		}
+	</style>
+	<script type="text/javascript">
+		function kontrol(){
+			var adsoyad = document.getElementById("adsoyad").value;
+			var email = document.getElementById("email").value;
+			var sifre = document.getElementById("sifre").value;
+			var tcno = document.getElementById("tcno").value;
+
+			document.getElementById("adsoyaduyari").innerHTML = document.write(adsoyad);
+			document.getElementById("emailuyari").innerHTML = "";
+			document.getElementById("sifreuyari").innerHTML = "";
+			document.getElementById("tcnouyari").innerHTML = "";
+
+			if (adsoyad == "") { 
+				document.getElementById("adsoyaduyari").innerHTML="Boş geçemezsiniz";
+			}
+			/*
+				if (email == "") { 
+				document.getElementById("emailuyari").innerHTML="Boş geçemezsiniz";
+				}
+				if (sifre == "") { 
+					document.getElementById("sifreuyari").innerHTML="Boş geçemezsiniz";
+				}
+				if (tcno == "") { 
+					document.getElementById("tcnouyari").innerHTML="Boş geçemezsiniz";
+				}
+			*/
+		}
+	</script>
+</head>
+<body>
+
+<form action="" method="get">
+	<table cellpadding="5" cellspacing="5">
+		<tr>
+		<td>Adı Soyadı</td>
+		<td><input type="text" id="adsoyad"></td>
+		<td><span id="adsoyaduyari"></span></td>
+		</tr>
+		<tr>
+			<td>E-mail</td>
+			<td><input type="text" id="email"></td>
+			<td><span id="emailuyari"></span></td>
+		</tr>
+		<tr>
+			<td>Şifre</td>
+			<td><input type="password" id="sifre"></td>
+			<td><span id="sifreuyari"></span></td>
+		</tr>
+		<tr>
+			<td>TC Kimlik No</td>
+			<td><input type="text" id="tcno"></td>
+			<td><span id="tcnouyari"></span></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td align="center"><input type="submit" value="Gönder" onclick="kontrol()"></td>
+			<td></td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>

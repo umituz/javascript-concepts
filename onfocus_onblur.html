@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>events yani => olaylar // onfocus - onblur</title>
+	<script type="text/javascript">
+		function icerde(){
+			document.getElementById("yazi").value = "İçerdeyim!";
+		}
+		function disarda(){
+			document.getElementById("yazi").value = "";
+		}
+
+		function degisti(){
+			var ad = document.getElementById("ad").value;
+			alert(ad);
+		}
+	</script>
+</head>
+<body>
+
+<input type="text" id="yazi" onfocus="icerde()" onblur="disarda()" />
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>setTimeout - window.open</title>
+	<script type="text/javascript">
+		var pencere;
+		function pencereac(){
+			pencere=window.open("","Ben bir başlığım","width=600,height=400,top=200,left=100,scrollbars=no");
+			pencere.document.write("<html><head><title>setTimeout ve window.open özellikleri</title></head><body bgcolor='black' text='white'>");
+			pencere.document.write("<center><span>Bu pencere kendiliğinden daha sonra kapanacaktır.</span></center>");
+			pencere.document.write("</body></html>");
+			setTimeout("pencerekapat()",3000);
+		}
+		function pencerekapat(){
+			pencere.close();
+		}
+	</script>
+</head>
+<body>
+<a href="#" onclick="pencereac()">Pencereyi Aç</a>
+</body>
+</html>

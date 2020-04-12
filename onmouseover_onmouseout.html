@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>events yani => olaylar // onmouseover - onmouseout</title>
+	<script type="text/javascript">
+		function geldi(){
+			document.getElementById("resim").src = "resim/astronot.png";
+		}
+		function gitti(){
+			document.getElementById("resim").src = "resim/uzay.png";
+		}
+	</script>
+</head>
+<body>
+
+<img src="resim/uzay.png" id="resim" width="800" onmouseover="geldi()" onmouseout="gitti()" />
+
+</body>
+</html>

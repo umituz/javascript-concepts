@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>onmouseover - onmouseout</title>
+	<script type="text/javascript">
+		function uzerinegelince(){
+			document.getElementById("mesaj").innerHTML = "Senin gibi birini tanımak ne güzel!";
+			document.getElementById("mesaj").style.color = "red";
+		}
+		function uzerindenayrilinca(){
+			document.getElementById("mesaj").innerHTML = "Merhaba Adamım!";
+			document.getElementById("mesaj")	.style.color = "black";
+		}
+	</script>
+</head>
+<body>
+<h1 id="mesaj" onmouseover="uzerinegelince()" onmouseout="uzerindenayrilinca()">Merhaba Adamım!</h1>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>events yani => olaylar // onclick - ondblclik</title>
+	<script type="text/javascript">
+		var a = prompt("Sayı","Tek ya da çift sayı giriniz");
+		function cift(){
+			alert("İki defa tıklattın!");
+		}
+		function tek(){
+			alert("Bir defa tıklattın!");
+		}
+		if(a % 2 == 0){
+			document.write("<input type='submit' value='Çift Tıkla' ondblclick='cift()' />");
+		}else{
+			document.write("<input type='submit' value='Tıkla' onclick='tek()' />");
+		}
+	</script>
+</head>
+<body>
+
+
+
+</body>
+</html>

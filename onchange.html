@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>events yani => olaylar // onchange</title>
+	<script type="text/javascript">
+		function degisti(){
+			var ad = "umit";
+			var kullanici = document.getElementById("kullanici").value;
+			if(ad != kullanici){
+				document.getElementById("uyari").innerHTML = "Kullanıcı Adı Yanlış!";
+			}else{
+				document.getElementById("uyari").innerHTML = "Kullanıcı Adı Doğru!";
+			}
+		}
+	</script>
+</head>
+<body>
+
+Kullanıcı Adı : <input type="text" id="kullanici" onchange="degisti()" /> <b id="uyari"></b>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zamanlama Fonksiyonları // setTimeout - clearTimeout</title>
+	<script type="text/javascript">
+		var zaman;
+		function calistir(){			
+			zaman = setTimeout("mesaj()",3000);
+		}
+		function mesaj(){
+			document.write("3 saniye bekledikten sonra oluşan bir mesaj içeriği!");
+		}
+		function iptalet(){
+			clearTimeout(zaman);
+		}
+	</script>
+</head>
+<body>
+
+<input type="button" onclick="calistir()" value="3 saniye bekle" />
+<input type="button" onclick="iptalet()" value="İptal et">
+
+</body>
+</html>

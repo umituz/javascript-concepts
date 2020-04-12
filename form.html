@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>üst düzey bir form</title>
+	<style type="text/css">
+		input:focus,select:focus{
+			outline: none;
+		}
+		.form1{
+			width: 610px; height:450px; margin:60px auto; background-color: #ddd; padding: 100px 0 0 40px;
+		}
+		td{
+			height: 30px;
+		}
+		body{
+			font:12px Tahoma;
+		}
+		#gonder{
+			width: 120px; height:30px; border: 2px solid #9d3A56; background-color: #933; border-radius: 3px; color:#fff; font-weight:bold;
+		}
+		#gonder:hover{
+			border-color: #9b4562; background-color: #72273c; cursor: pointer;
+		}
+		#ad,#soyad,#kadi,#parola,#email,#girilen_kod{
+			width: 172px; height: 25px; border:1px solid #bbb; color:#ababab; background-color: white; border-radius: 3px; padding-left: 5px;
+		}
+		#gun,#ay{
+			width: 50px; height: 25px; color: black; border: 1px solid #999; background-color: white; border-radius: 3px;
+		}
+		#yil,#dogum_yeri{
+			width:100px; height: 25px; color: black; border: 1px solid #999; background-color: white; border-radius: 3px; 
+		}
+		#uretilen_kod{
+			width:135px; height: 56px; background-color: brown; font: bold 30px Tahoma; color: white; text-align: center; border: none; text-shadow: 0 2px 2px black;
+		}
+	</style>
+	<script type="text/javascript">
+		function koduret(){
+			var kodlar="";
+			for(var i=1; i<=6; i++){
+				if(Math.round(Math.random()) == 1){
+					kodlar = kodlar + String.fromCharCode(65+25*Math.random());					
+				}else{
+					kodlar = kodlar + String.fromCharCode(48+9*Math.random());					
+				}
+			}
+			
+			document.getElementById("uretilen_kod").value = kodlar;
+		}
+		function odaklan(x){
+			if(x == "ad" || x == "soyad" || x == "kadi" || x == "email" || x == "girilen_kod" ){
+				document.getElementById(x).value = "";
+				document.getElementById(x).style.background = "#fff7db";
+				document.getElementById(x).style.color = "#000";
+				document.getElementById(x).style.borderColor = "#000";
+			}
+		}
+		function cikis(x,y){
+			if(y == ""){
+				if(x == "ad"){
+					document.getElementById(x).value = "Adınızı giriniz";
+				}
+				if(x == "soyad"){
+					document.getElementById(x).value = "Soyadınızı giriniz";
+				}
+				if(x == "kadi"){
+					document.getElementById(x).value = "Kullanıcı adınızı giriniz";
+				}
+				if(x == "email"){
+					document.getElementById(x).value = "E-Mail adresinizi giriniz";
+				}
+				if(x == "girilen_kod"){
+					document.getElementById(x).value = "Güvenlik kodunu giriniz";
+				}
+				document.getElementById(x).style.background = "#fff";
+				document.getElementById(x).style.color = "#ababab";
+				document.getElementById(x).style.borderColor = "#bbb";
+			}else{
+				document.getElementById(x).style.background = "#fff";
+				document.getElementById(x).style.color = "#000";
+				document.getElementById(x).style.borderColor = "#bbb";
+			}
+		}
+		function islem(){
+			document.getElementById("aduyari").innerHTML = "";
+			document.getElementById("soyaduyari").innerHTML = "";
+			document.getElementById("kadiuyari").innerHTML = "";
+			document.getElementById("parolauyari").innerHTML = "";
+			document.getElementById("emailuyari").innerHTML = "";
+			document.getElementById("guvenlikuyari").innerHTML = "";
+			var kural, yazi;
+			yazi = document.getElementById("email").value;
+			kural = /.+@.+\.+./;
+			if(document.getElementById("ad").value == "Adınızı giriniz"){
+				document.getElementById("aduyari").innerHTML = "Adınızı yazmadınız!";
+				document.getElementById("aduyari").style.color = "red";				
+			}
+			if(document.getElementById("soyad").value == "Soyadınızı giriniz"){
+				document.getElementById("soyaduyari").innerHTML = "Soyadınızı yazmadınız!";
+				document.getElementById("soyaduyari").style.color = "red";				
+			}
+			if(document.getElementById("kadi").value == "Kullanıcı adınızı giriniz"){
+				document.getElementById("kadiuyari").innerHTML = "Kullanıcı adınızı yazmadınız!";
+				document.getElementById("kadiuyari").style.color = "red";				
+			}
+			if(document.getElementById("parola").value == ""){
+				document.getElementById("parolauyari").innerHTML = "Parolayı yazmadınız!";
+				document.getElementById("parolauyari").style.color = "red";				
+			}
+			if(document.getElementById("email").value == "E-Mail adresinizi giriniz"){
+				document.getElementById("emailuyari").innerHTML = "E-Mail adresinizi yazmadınız!";
+				document.getElementById("emailuyari").style.color = "red";				
+			}else if(!kural.test(yazi)){
+				document.getElementById("emailuyari").innerHTML = "Geçersiz Mail!";
+				document.getElementById("emailuyari").style.color = "red";
+			}
+			if(document.getElementById("girilen_kod").value == "Güvenlik kodunu giriniz"){
+				document.getElementById("guvenlikuyari").innerHTML = "Güvenlik kodunu yazmadınız!";
+				document.getElementById("guvenlikuyari").style.color = "red";				
+			}else if(document.getElementById("uretilen_kod").value != document.getElementById("girilen_kod").value){
+				document.getElementById("guvenlikuyari").innerHTML = "Eşleşmedi!";
+				document.getElementById("guvenlikuyari").style.color = "red";
+			}
+		}
+	</script>
+</head>
+<body onload="koduret()">
+
+<div class="form1">
+	<form action="" method="post">
+		<table>
+			<tr>
+				<td width="180">Adı</td>
+				<td width="270"><input type="text" name="" id="ad" value="Adınızı giriniz" onfocus="odaklan(this.id)" onblur="cikis(this.id,this.value)"></td>
+				<td width="180"><span id="aduyari"></span></td>
+			</tr>
+			<tr>
+				<td>Soyadı</td>
+				<td><input type="text" name="" id="soyad" value="Soyadınızı giriniz" onfocus="odaklan(this.id)" onblur="cikis(this.id,this.value)"></td>
+				<td><span id="soyaduyari"></span></td>
+			</tr>
+			<tr>
+				<td>Kullanıcı Adı</td>
+				<td><input type="text" name="" id="kadi" value="Kullanıcı adınızı giriniz" onfocus="odaklan(this.id)" onblur="cikis(this.id,this.value)"></td>
+				<td><span id="kadiuyari"></span></td>
+			</tr>
+			<tr>
+				<td>Parola</td>
+				<td><input type="password" name="" id="parola"></td>
+				<td><span id="parolauyari"></span></td>
+			</tr>
+			<tr>
+				<td>E-Mail</td>
+				<td><input type="text" name="" id="email" value="E-Mail adresinizi giriniz" onfocus="odaklan(this.id)" onblur="cikis(this.id,this.value)"></td>
+				<td><span id="emailuyari"></span></td>
+			</tr>
+			<tr>
+				<td>Doğum Tarihi</td>
+				<td>
+					<select name="" id="gun">
+						<option>Gün</option>
+						<option value="1">1</option>
+					</select>
+					<select name="" id="ay">
+						<option>Ay</option>
+						<option value="1">1</option>
+					</select>
+					<select name="" id="yil">
+						<option>Yıl</option>
+						<option>1996</option>
+					</select>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Doğum Yeri</td>
+				<td>
+					<select name="" id="dogum_yeri"><option>Gaziantep</option></select>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Cinsiyet</td>
+				<td>
+					<input type="radio" name="cinsiyet" id="erkek" checked="">Erkek
+					<input type="radio" name="cinsiyet" id="kadin">Kadın
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Hobiler</td>
+				<td>
+					<input type="checkbox" name="" id="hobi1">Spor
+					<input type="checkbox" name="" id="hobi2">Sinema
+					<input type="checkbox" name="" id="hobi3">Müzik
+					<input type="checkbox" name="" id="hobi4">Kitap
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="" id="uretilen_kod" disabled=""></td>
+				<td><input type="text" name="" id="girilen_kod" value="Güvenlik kodunu giriniz" onfocus="odaklan(this.id)" onblur="cikis(this.id,this.value)"></td>
+				<td><span id="guvenlikuyari"></span></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="button" value="Gönder" name="" id="gonder" onclick="islem()"></td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+</div>
+
+</body>
+</html>
